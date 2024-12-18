@@ -1,26 +1,21 @@
-name: Deploy Vite App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master  # O la rama que uses como principal
+      - master # Cambia si usas otra rama como principal
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18  # O la versión de Node que usas
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
@@ -28,3 +23,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          cname: computeup.pe 
