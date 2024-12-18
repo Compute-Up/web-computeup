@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/web-computeup/', // Reemplaza 'nombre-del-repositorio' con el nombre de tu repositorio
+  base: '/web-computeup/', 
   plugins: [react()],
   build: {
     outDir: 'dist',
